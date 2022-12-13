@@ -1,3 +1,8 @@
+// if(process.env.NODE_ENV !== 'production')
+// {
+//   require('dotenv').config();
+// }
+
 import { MongoClient } from 'mongodb';
 import { Fragment } from 'react';
 import MeetupList from '../components/meetups/MeetupList';
@@ -44,7 +49,7 @@ function HomePage(props){
 export async function getStaticProps() {
     // fetch data
 
-    const client = await MongoClient.connect("mongodb+srv://madanNext:madanNext@cluster0.yhleb.mongodb.net/meetups?retryWrites=true&w=majority");
+    const client = await MongoClient.connect(process.env.DB_URL);
 
 
     const db = client.db();

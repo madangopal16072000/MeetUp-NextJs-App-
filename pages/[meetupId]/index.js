@@ -19,7 +19,7 @@ const MeetupDetails = (props) => {
   );
 };
 export async function getStaticPaths(){
-    const client = await MongoClient.connect("mongodb+srv://madanNext:madanNext@cluster0.yhleb.mongodb.net/meetups?retryWrites=true&w=majority");
+    const client = await MongoClient.connect(process.env.DB_URL);
 
 
     const db = client.db();
